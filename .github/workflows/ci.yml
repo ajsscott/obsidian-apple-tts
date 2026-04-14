@@ -1,0 +1,37 @@
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - dev
+      - main
+  push:
+    branches:
+      - dev
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Type check
+        run: npx tsc -noEmit
+
+      - name: Build
+        run: node esbuild.config.mjs production
+
+      - name: Verify build output
+        run: |
+          test -f main.js || (echo "main.js not found" && exit 1)
+          echo "Build size: $(wc -c < main.js) bytes"
