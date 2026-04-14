@@ -4,6 +4,8 @@ Read your Obsidian notes aloud using the native macOS text-to-speech system.
 
 > **macOS only.** This plugin uses the built-in `say` command available on macOS. It does not work on Windows or Linux.
 
+> *Tested on MacOS Tahoe 26 and later.*
+
 No internet connection required. No external API keys. No subscriptions. Apple TTS uses the voices already installed on your Mac — the same ones available in System Settings > Accessibility > Spoken Content.
 
 ---
