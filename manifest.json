@@ -3,7 +3,7 @@
 	"name": "Apple TTS",
 	"version": "1.0.0",
 	"minAppVersion": "1.7.0",
-	"description": "Read notes aloud using macOS native text-to-speech",
+	"description": "Read notes aloud using macOS native text-to-speech.",
 	"author": "ajsscott",
 	"isDesktopOnly": true
 }
