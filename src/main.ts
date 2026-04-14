@@ -18,7 +18,7 @@ export default class AppleTTSPlugin extends Plugin {
 		await this.loadSettings();
 
 		if (process.platform !== "darwin") {
-			new Notice("Apple TTS requires macOS");
+			new Notice("This plugin requires macOS");
 			return;
 		}
 
@@ -31,7 +31,7 @@ export default class AppleTTSPlugin extends Plugin {
 			}
 			if (this.statusBarEl) {
 				this.statusBarEl.setText(
-					speaking ? "TTS: Speaking..." : ""
+					speaking ? "Speaking..." : ""
 				);
 			}
 		};
@@ -39,12 +39,12 @@ export default class AppleTTSPlugin extends Plugin {
 		try {
 			this.voices = await this.ttsEngine.getVoices();
 		} catch (e) {
-			new Notice(`Apple TTS: Could not load voices: ${e instanceof Error ? e.message : String(e)}`);
+			new Notice(`Could not load voices: ${e instanceof Error ? e.message : String(e)}`);
 		}
 
 		this.ribbonIconEl = this.addRibbonIcon(
 			"audio-lines",
-			"Apple TTS: Read note aloud",
+			"Read note aloud",
 			() => {
 				if (this.ttsEngine.isSpeaking) {
 					this.ttsEngine.stop();
