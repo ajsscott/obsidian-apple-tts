@@ -38,8 +38,8 @@ export default class AppleTTSPlugin extends Plugin {
 
 		try {
 			this.voices = await this.ttsEngine.getVoices();
-		} catch {
-			new Notice("Apple TTS: Could not load voices");
+		} catch (e) {
+			new Notice(`Apple TTS: Could not load voices: ${e instanceof Error ? e.message : String(e)}`);
 		}
 
 		this.ribbonIconEl = this.addRibbonIcon(

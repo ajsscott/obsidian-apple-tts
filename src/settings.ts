@@ -80,7 +80,7 @@ export class AppleTTSSettingTab extends PluginSettingTab {
 				`Select a macOS voice (${filtered.length} available).`
 			)
 			.addDropdown((dropdown) => {
-				dropdown.addOption("", "(System Default)");
+				dropdown.addOption("", "(System default)");
 				for (const voice of filtered) {
 					dropdown.addOption(
 						voice.name,
@@ -114,11 +114,10 @@ export class AppleTTSSettingTab extends PluginSettingTab {
 
 		// --- Content Filters ---
 
-		containerEl.createEl("h3", { text: "Content filters" });
-		containerEl.createEl("p", {
-			text: "Choose which content types to skip when reading aloud.",
-			cls: "setting-item-description",
-		});
+		new Setting(containerEl)
+			.setName("Content filters")
+			.setDesc("Choose which content types to skip when reading aloud.")
+			.setHeading();
 
 		const filters: {
 			key: keyof AppleTTSSettings;
