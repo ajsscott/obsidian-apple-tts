@@ -1,0 +1,21 @@
+{
+	"name": "obsidian-apple-tts",
+	"version": "1.0.0",
+	"description": "Read notes aloud using macOS native text-to-speech",
+	"main": "main.js",
+	"type": "module",
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit && node esbuild.config.mjs production"
+	},
+	"keywords": [],
+	"author": "ajsscott",
+	"license": "MIT",
+	"devDependencies": {
+		"@types/node": "latest",
+		"esbuild": "0.25.5",
+		"obsidian": "latest",
+		"tslib": "2.4.0",
+		"typescript": "5.8.3"
+	}
+}
