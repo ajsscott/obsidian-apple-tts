@@ -65,7 +65,7 @@ export class AppleTTSSettingTab extends PluginSettingTab {
 			)
 			.addText((text) =>
 				text
-					.setPlaceholder("en")
+					
 					.setValue(this.plugin.settings.languageFilter)
 					.onChange(async (value) => {
 						this.plugin.settings.languageFilter = value;
