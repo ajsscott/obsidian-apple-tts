@@ -65,7 +65,7 @@ export class AppleTTSSettingTab extends PluginSettingTab {
 			)
 			.addText((text) =>
 				text
-					.setPlaceholder("e.g., en")
+					.setPlaceholder("en")
 					.setValue(this.plugin.settings.languageFilter)
 					.onChange(async (value) => {
 						this.plugin.settings.languageFilter = value;
@@ -80,7 +80,7 @@ export class AppleTTSSettingTab extends PluginSettingTab {
 				`Select a macOS voice (${filtered.length} available).`
 			)
 			.addDropdown((dropdown) => {
-				dropdown.addOption("", "(System default)");
+				dropdown.addOption("", "System default");
 				for (const voice of filtered) {
 					dropdown.addOption(
 						voice.name,

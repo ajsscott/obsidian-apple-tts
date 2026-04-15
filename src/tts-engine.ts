@@ -18,7 +18,7 @@ export class TTSEngine {
 		return new Promise((resolve, reject) => {
 			execFile("say", ["-v", "?"], (error, stdout) => {
 				if (error) {
-					reject(error instanceof Error ? error : new Error(String(error)));
+					reject(error);
 					return;
 				}
 				const voices: VoiceInfo[] = [];
