@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2 (2026-04-16)
+
+### Fixes
+
+- Fix audio truncation: last word of every sentence was being cut off. Switched from piping sentences to `say` via stdin to passing them as positional arguments, which avoids a stdin-buffering quirk in `say` that clipped the tail of short inputs.
+
 ## 1.1.1 (2026-04-16)
 
 ### Fixes
