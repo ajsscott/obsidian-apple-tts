@@ -171,12 +171,16 @@ export class TTSEngine {
 			args.push("-v", this.currentVoice);
 		}
 		args.push("-r", String(this.currentRate));
+		// Pass the sentence as a positional argument rather than via stdin.
+		// `say` truncates the tail of short stdin inputs when the process
+		// closes its input stream, which was cutting the last word of every
+		// sentence. Argument passing is safe here: spawn() is invoked without
+		// a shell, so no escaping is needed, and sentences are far below
+		// macOS ARG_MAX.
+		args.push(sentence);
 
 		const proc = spawn("say", args);
 		this.process = proc;
-
-		proc.stdin?.write(sentence);
-		proc.stdin?.end();
 
 		proc.on("close", () => {
 			// If token changed, we were stopped or replaced — don't advance.
