@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.1.0 (2026-04-16)
+
+### Features
+
+- Active-sentence highlighting in the editor as text is read aloud
+- Floating, draggable playback control panel with:
+  - Play / Pause toggle (halts and resumes mid-sentence)
+  - Stop
+  - Jump to next / previous sentence
+  - Live "current / total" sentence counter
+- Pause/resume preserves exact playback position via process signals (SIGSTOP / SIGCONT)
+- New commands (all hotkey-able): pause-resume, next-sentence, previous-sentence
+
 ## 1.0.0 (2026-04-14)
 
 Initial release.

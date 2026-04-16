@@ -1,0 +1,85 @@
+/* ---- Sentence highlight ---- */
+
+.apple-tts-active-sentence {
+	background-color: var(--text-highlight-bg, rgba(255, 208, 0, 0.35));
+	border-radius: 2px;
+	transition: background-color 0.15s ease-in-out;
+}
+
+.markdown-preview-view .apple-tts-active-sentence {
+	background-color: var(--text-highlight-bg, rgba(255, 208, 0, 0.35));
+}
+
+/* ---- Floating control panel ---- */
+
+.apple-tts-panel {
+	position: fixed;
+	bottom: 40px;
+	right: 40px;
+	z-index: var(--layer-modal, 1000);
+	background: var(--background-primary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 8px;
+	box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+	user-select: none;
+	min-width: 200px;
+	font-family: var(--font-interface);
+}
+
+.apple-tts-panel-handle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 6px 12px;
+	background: var(--background-secondary);
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+	cursor: move;
+	border-bottom: 1px solid var(--background-modifier-border);
+}
+
+.apple-tts-panel-title {
+	font-size: var(--font-ui-smaller);
+	font-weight: 600;
+	color: var(--text-muted);
+}
+
+.apple-tts-panel-counter {
+	font-size: var(--font-ui-smaller);
+	color: var(--text-muted);
+	font-variant-numeric: tabular-nums;
+}
+
+.apple-tts-panel-buttons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 4px;
+	padding: 8px 12px;
+}
+
+.apple-tts-panel-btn {
+	background: transparent;
+	border: none;
+	border-radius: 4px;
+	padding: 6px;
+	cursor: pointer;
+	color: var(--text-normal);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	transition: background-color 0.1s ease-in-out;
+}
+
+.apple-tts-panel-btn:hover {
+	background: var(--background-modifier-hover);
+}
+
+.apple-tts-panel-btn:active {
+	background: var(--background-modifier-active-hover);
+}
+
+.apple-tts-panel-btn svg {
+	width: 18px;
+	height: 18px;
+}
