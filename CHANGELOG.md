@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.3 (2026-04-16)
+
+### Fixes
+
+- Fix last-word cutoff on every sentence (not just at skip transitions). Append a small `[[slnc 50]]` silence to each sentence so `say` holds the audio unit long enough for CoreAudio to finish draining the real speech before exiting.
+
 ## 1.1.2 (2026-04-16)
 
 ### Fixes

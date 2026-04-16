@@ -171,13 +171,15 @@ export class TTSEngine {
 			args.push("-v", this.currentVoice);
 		}
 		args.push("-r", String(this.currentRate));
-		// Pass the sentence as a positional argument rather than via stdin.
-		// `say` truncates the tail of short stdin inputs when the process
-		// closes its input stream, which was cutting the last word of every
-		// sentence. Argument passing is safe here: spawn() is invoked without
-		// a shell, so no escaping is needed, and sentences are far below
-		// macOS ARG_MAX.
-		args.push(sentence);
+		// Append macOS Speech Synthesis silence padding (`[[slnc 50]]` =
+		// 50 ms of trailing silence). `say` hands audio to CoreAudio and
+		// exits before the audio buffer is fully drained; without padding,
+		// the final word of each sentence is cut when the next `say` spawns
+		// and claims the audio unit. The trailing silence keeps the audio
+		// unit held long enough for CoreAudio to finish the real speech.
+		// Sentence is passed as a positional arg — spawn() uses no shell,
+		// so no escaping is needed.
+		args.push(`${sentence} [[slnc 50]]`);
 
 		const proc = spawn("say", args);
 		this.process = proc;
