@@ -124,10 +124,13 @@ export class ControlPanel {
 		// Clamp to viewport
 		const maxX = window.innerWidth - this.root.offsetWidth;
 		const maxY = window.innerHeight - this.root.offsetHeight;
-		this.root.style.left = `${Math.max(0, Math.min(x, maxX))}px`;
-		this.root.style.top = `${Math.max(0, Math.min(y, maxY))}px`;
-		this.root.style.right = "auto";
-		this.root.style.bottom = "auto";
+		const clampedX = Math.max(0, Math.min(x, maxX));
+		const clampedY = Math.max(0, Math.min(y, maxY));
+		// Write positions through CSS custom properties so styling stays in
+		// the stylesheet (required by Obsidian's no-inline-styles lint rule).
+		this.root.style.setProperty("--apple-tts-panel-left", `${clampedX}px`);
+		this.root.style.setProperty("--apple-tts-panel-top", `${clampedY}px`);
+		this.root.addClass("is-dragged");
 	}
 
 	private handleMouseUp(): void {

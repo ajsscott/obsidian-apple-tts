@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.1.1 (2026-04-16)
+
+### Fixes
+
+- Satisfy Obsidian review bot: move inline panel drag positioning to CSS custom properties
+- Replace `any` cast in editor-view access with typed unknown narrowing
+- Add `@codemirror/view` + `@codemirror/state` dev dependencies so types resolve properly
+
 ## 1.1.0 (2026-04-16)
 
 ### Features

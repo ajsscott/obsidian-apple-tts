@@ -26,6 +26,15 @@
 	font-family: var(--font-interface);
 }
 
+/* When the user drags the panel, we switch from bottom/right anchoring to
+ * top/left using CSS custom properties the component writes. */
+.apple-tts-panel.is-dragged {
+	top: var(--apple-tts-panel-top);
+	left: var(--apple-tts-panel-left);
+	right: auto;
+	bottom: auto;
+}
+
 .apple-tts-panel-handle {
 	display: flex;
 	align-items: center;

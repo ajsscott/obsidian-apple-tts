@@ -279,8 +279,7 @@ export default class AppleTTSPlugin extends Plugin {
  * Obsidian exposes `cm` as the EditorView — stable but undocumented.
  */
 function getEditorView(editor: Editor): EditorView | null {
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	const cm = (editor as any).cm;
+	const cm = (editor as unknown as { cm?: unknown }).cm;
 	if (cm instanceof EditorView) return cm;
 	return null;
 }
