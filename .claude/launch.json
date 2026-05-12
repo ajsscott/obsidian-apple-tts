@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "esbuild-watch",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["esbuild.config.mjs"],
+      "port": 0
+    }
+  ]
+}
